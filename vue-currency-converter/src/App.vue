@@ -1,5 +1,7 @@
 <script setup>
-import Converter from './components/Converter.vue'
+import axios from 'axios';
+import Converter from './components/Converter.vue';
+
 
 </script>
 
