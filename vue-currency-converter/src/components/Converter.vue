@@ -12,11 +12,8 @@ import axios from 'axios';
 </div>
 </template>
 
-<style scoped>
-@import '/src/assets/style/style.css';
+<style lang="scss">
 
-h1 {
-    font-weight: 900;
-}
+
 
 </style>

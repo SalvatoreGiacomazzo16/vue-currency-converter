@@ -8,9 +8,13 @@ import Converter from './components/Converter.vue';
 <template>
 
 <Converter />
+
   
 </template>
 
-<style scoped>
-@import '/src/assets/style/style.css';
+<style lang="scss" >
+@import './assets/style/style.scss';
+
+
+
 </style>
