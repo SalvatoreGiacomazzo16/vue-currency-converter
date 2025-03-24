@@ -13,5 +13,10 @@ import axios from 'axios';
 </template>
 
 <style scoped>
+@import '/src/assets/style/style.css';
+
+h1 {
+    font-weight: 900;
+}
 
 </style>

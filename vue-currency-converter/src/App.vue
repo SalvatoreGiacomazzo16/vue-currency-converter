@@ -12,5 +12,5 @@ import Converter from './components/Converter.vue';
 </template>
 
 <style scoped>
-
+@import '/src/assets/style/style.css';
 </style>
