@@ -13,7 +13,7 @@ import Converter from './components/Converter.vue';
 </template>
 
 <style lang="scss" >
-@import './assets/style/style.scss';
+@use './assets/style/style.scss';
 
 
 
