@@ -1,31 +1,41 @@
 <template>
-    <div class="currency-input row g-1 mt-5">
+
+   <div class="currency-input row g-1 mt-5">
         <div class="col-md-6">
   
-  <input type="text" class="form-control input-field" placeholder="Number" aria-label="Number" aria-describedby="Number">
+  <input type="text" class="form-control input-field" placeholder="Amount"  >
 </div>
 <div class="col-md-6">
-        <select class="form-select input-field" aria-label="Default select example">
-            <option selected value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-       </select>
+    <select class="form-select input-field" aria-label="Default select example">
+            <option 
+          v-for="(currencyName, currencyCode) in currencies" 
+          :key="currencyCode" 
+          :value="currencyCode"
+        >
+          {{ currencyCode }} - {{ currencyName }}
+        </option>
+    </select>
     </div>
     </div>
 
     <div class="currency-input row g-1 mt-5">
         <div class="col-md-6">
   
-  <input type="text" class="form-control input-field" placeholder="Number" aria-label="Number" aria-describedby="Number">
+  <input type="text" class="form-control input-field" placeholder="Amount" >
 </div>
 <div class="col-md-6">
         <select class="form-select input-field" aria-label="Default select example">
-            <option selected value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option 
+          v-for="(currencyName, currencyCode) in currencies" 
+          :key="currencyCode" 
+          :value="currencyCode"
+        >
+          {{ currencyCode }} - {{ currencyName }}
+        </option>
        </select>
     </div>
     </div>
+
 
 </template>
 
@@ -33,6 +43,11 @@
 export default {
     name: 'CurrencyInput',
     props: {
+        currencies: {
+      type: Object,
+      required: true
+    }
+        
        
     },
     data() {

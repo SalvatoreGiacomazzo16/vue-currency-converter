@@ -27,7 +27,12 @@ try {
     <div class="container box">
 <h1 class="text-center"> Currency Converter</h1>
 
-<CurrencyInput />
+<CurrencyInput
+:currencies = "currencies"
+  :defaultSelect1="defaultSelect1"
+      :defaultSelect2="defaultSelect2"
+
+/>
 
 </div>
 </template>
