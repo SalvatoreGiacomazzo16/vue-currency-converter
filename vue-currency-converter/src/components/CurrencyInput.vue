@@ -6,7 +6,7 @@
   <input type="text" class="form-control input-field" placeholder="Amount"  >
 </div>
 <div class="col-md-6">
-    <select class="form-select input-field" aria-label="Default select example">
+    <select class="form-select input-field"  v-model="selectedCurrency1" aria-label="Default select example">
             <option 
           v-for="(currencyName, currencyCode) in currencies" 
           :key="currencyCode" 
@@ -24,11 +24,12 @@
   <input type="text" class="form-control input-field" placeholder="Amount" >
 </div>
 <div class="col-md-6">
-        <select class="form-select input-field" aria-label="Default select example">
+        <select class="form-select input-field"  v-model="selectedCurrency2" aria-label="Default select example">
             <option 
           v-for="(currencyName, currencyCode) in currencies" 
           :key="currencyCode" 
           :value="currencyCode"
+          
         >
           {{ currencyCode }} - {{ currencyName }}
         </option>
@@ -46,12 +47,22 @@ export default {
         currencies: {
       type: Object,
       required: true
+    },
+    defaultSelect1: {
+      type: String,
+      default: 'EUR'
+    },
+    defaultSelect2: {
+      type: String,
+      default: 'USD'
     }
         
        
     },
     data() {
         return {
+            selectedCurrency1: this.defaultSelect1,
+      selectedCurrency2: this.defaultSelect2
           
         };
     },
