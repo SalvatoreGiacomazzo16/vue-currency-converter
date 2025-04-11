@@ -3,7 +3,7 @@
    <div class="currency-input row g-1 mt-5">
         <div class="col-md-6">
   
-  <input type="text" class="form-control input-field" placeholder="Amount" v-model="select1" @input="validateNumber('select1')" >
+  <input type="text" class="form-control input-field" placeholder="Amount" v-model="select1" @input="validateInput('select1')" >
 </div>
 <div class="col-md-6">
     <select class="form-select input-field"  v-model="selectedCurrency1" aria-label="Default select example">
@@ -21,7 +21,7 @@
     <div class="currency-input row g-1 mt-5">
         <div class="col-md-6">
   
-  <input type="text" class="form-control input-field" placeholder="Amount" v-model="select2" @input="validateNumber('select2')" >
+  <input type="text" class="form-control input-field" placeholder="Amount" v-model="select2" @input="validateInput('select2')" >
 </div>
 <div class="col-md-6">
         <select class="form-select input-field"  v-model="selectedCurrency2" aria-label="Default select example">
@@ -69,18 +69,20 @@ export default {
         };
     },
     methods: {
-      validateNumber(field) {
+      validateInput(field) {
+      // regex that removes all characters except digits
+      this[field] = this[field].replace(/[^\d.]/g, '');
       
-         if (field === 'select1') {
-            this.select1 = this.select1.replace(/[^\d.]/g, '');
-        } else if (field === 'select2') { 
-            this.select2 = this.select2.replace(/[^\d.]/g, '');
-        }
-     
-    this[field] = this[field].replace(/[^\d.]/g, '');
-  }
+      // more dots management
+      const parts = this[field].split('.');
+      if (parts.length > 2) {
+        // keep only the first dot
+        this[field] = parts[0] + '.' + parts.slice(1).join('');
+      }
+    }
+  },
        
-    },
+  
     computed: {
         
     },
