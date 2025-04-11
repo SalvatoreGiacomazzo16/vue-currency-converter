@@ -3,7 +3,7 @@
    <div class="currency-input row g-1 mt-5">
         <div class="col-md-6">
   
-  <input type="text" class="form-control input-field" placeholder="Amount"  >
+  <input type="text" class="form-control input-field" placeholder="Amount" v-model="select1" @input="validateNumber('select1')" >
 </div>
 <div class="col-md-6">
     <select class="form-select input-field"  v-model="selectedCurrency1" aria-label="Default select example">
@@ -21,7 +21,7 @@
     <div class="currency-input row g-1 mt-5">
         <div class="col-md-6">
   
-  <input type="text" class="form-control input-field" placeholder="Amount" >
+  <input type="text" class="form-control input-field" placeholder="Amount" v-model="select2" @input="validateNumber('select2')" >
 </div>
 <div class="col-md-6">
         <select class="form-select input-field"  v-model="selectedCurrency2" aria-label="Default select example">
@@ -62,11 +62,23 @@ export default {
     data() {
         return {
             selectedCurrency1: this.defaultSelect1,
-      selectedCurrency2: this.defaultSelect2
+      selectedCurrency2: this.defaultSelect2,
+      select1: "",
+      select2: "",
           
         };
     },
     methods: {
+      validateNumber(field) {
+      
+         if (field === 'select1') {
+            this.select1 = this.select1.replace(/[^\d.]/g, '');
+        } else if (field === 'select2') { 
+            this.select2 = this.select2.replace(/[^\d.]/g, '');
+        }
+     
+    this[field] = this[field].replace(/[^\d.]/g, '');
+  }
        
     },
     computed: {
